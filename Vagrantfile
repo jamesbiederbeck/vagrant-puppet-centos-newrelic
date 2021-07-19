@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
   pool_size = 3
   (1..pool_size).each do |i|
     config.vm.define "node-#{i}" do |node|
-      node.vm.hostname = "#{i}.vagrant.victor.so"
+      node.vm.hostname = "node-#{i}"
       node.vm.provision "shell",
         inline: "puppet module install newrelic-newrelic_infra --version 0.11.0;
                  puppet module install puppetlabs-docker --version 4.1.0;
